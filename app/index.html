@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Calling App</title>
+
+  <!-- CSS (served from /public) -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- socket.io client -->
+  <script src="/socket.io/socket.io.js"></script>
+
+  <!-- app script -->
+  <script src="/main.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <h1 class="app-title">Contacts</h1>
+
+        <!-- username input -->
+        <div class="username-input">
+          <input id="username" type="text" placeholder="Enter username" />
+          <button id="create-user" class="btn primary">Create</button>
+        </div>
+      </div>
+
+      <!-- contacts list (JS injects here) -->
+      <div class="contacts-wrap">
+        <ul id="allusers" class="contacts-list" aria-label="online users">
+          <!-- injected by JS -->
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <button id="end-call-btn" class="btn danger d-none" title="End call">
+          <img src="/images/phone-disconnect.png" alt="End call" /> End Call
+        </button>
+      </div>
+    </aside>
+
+    <main class="content">
+      
+
+      <section class="video-area">
+        <div class="video-column local-wrap">
+          <div class="video-label">You</div>
+          <div class="video-frame">
+            <video id="localVideo" autoplay muted playsinline></video>
+          </div>
+        </div>
+
+        <div class="video-column remote-wrap">
+          <div class="video-label">Remote</div>
+          <div class="video-frame">
+            <video id="remoteVideo" autoplay playsinline></video>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
